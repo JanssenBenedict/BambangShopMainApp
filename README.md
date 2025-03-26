@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [✓] Commit: `Implement unsubscribe function in Notification controller.`
     -   [✓] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [✓] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [✓] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [✓] Commit: `Implement publish function in Program service and Program controller.`
+    -   [✓] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [✓] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -105,3 +105,15 @@ Answer:<br>
 I have explored more about Postman. This tool allows me to properly test specific endpoints related to the project by creating HTTP requests to the server with different methods (GET, POST, DELETE, etc.) and allowing me to view the results or responses to the requests that were given. This is very helpful in making sure that the behavior in the endpoints that were accessed are exactly what we intended them to be.
 
 #### Reflection Publisher-3
+
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?<br>
+Answer:<br>
+In this tutorial case, the variation of Observer Pattern that we use is the Push model variation where the publisher pushes data to the subcribers. Whenever a product is created, deleted, or published/promoted, the system will trigger the NotificationService and notifies each subscriber for that product's type by pushing the notification data to them.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)<br>
+Answer:<br>
+The advantages of using the other variation of Observer Pattern, which is the Pull model variation, for this tutorial case are that subscribers can decide when to request the data that they need and they can also decide on what data they need to fetch. The disadvantage of using the Pull model variation is that subscribers must actively handle retrieving the needed data themselves, which adds complexity and makes the process more inconvenient for them.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.<br>
+Answer:<br>
+If we decide not to use multi-threading in the notification process, then each notifications will be sent one-by-one utilizing single-threading. This will result in the notifying process becoming very slow, any issues that might result in a single notification taking a significantly long amount of time to send could end up delaying the sending process for every subsequent notification that comes after it. There's also a chance that the system's server might not be able to handle a large amount of notifications in an effective and efficient manner, leading to possible crashes or timeouts.
